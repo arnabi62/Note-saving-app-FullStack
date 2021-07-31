@@ -1,0 +1,26 @@
+mat-card{
+  width: 80%;
+  margin: auto;
+}
+ textarea{
+   width: 100%;
+ }
+mat-form-field
+{
+  width: 100%;
+
+}
+
+input[type="file"]
+{
+  visibility:hidden;
+}
+
+.imageprev{
+  height: 5rem;
+  margin: 1rem 0;
+}
+
+.imageprev img{
+  height: 100%;
+}

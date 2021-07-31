@@ -1,0 +1,17 @@
+mat-toolbar{
+  background-color:cornflowerblue;
+  color:cornsilk;
+
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.space{
+  flex: 1 1 auto;
+}

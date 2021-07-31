@@ -1,0 +1,31 @@
+<mat-spinner *ngIf="isL"></mat-spinner>
+<mat-card>
+  <p class="mat-body-1" *ngIf = "postList.length ==0 && !isL" style="text-align: center;"><b>NO POSTS FOUND</b></p>
+<mat-accordion multi="true" *ngIf = "postList.length > 0 && !isL">
+<mat-expansion-panel *ngFor="let i of postList">
+  <mat-expansion-panel-header>
+    {{i.title}}
+  </mat-expansion-panel-header >
+  <div>
+  <p class="mat-body-1" style="text-align: right;">{{i.date | date: 'shortDate' }}</p>
+  <div class="image-view">
+    <img [src]="i.imagePath" [alt]="i.title">
+  </div>
+  <br><br>
+  <h1 class="mat-body-1" >{{i.content}}</h1>
+</div>
+
+  <mat-action-row>
+    <a mat-button color="primary" [routerLink]="['/edit', i.id]">Edit</a>
+    <button mat-button color="Warn" (click)="onDel(i.id)">Delete</button>
+  </mat-action-row>
+</mat-expansion-panel>
+
+</mat-accordion>
+</mat-card>
+
+
+
+
+
+
