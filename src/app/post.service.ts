@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
 export class PostService {
 
   private postList: Post[]=[]
-  private postupdate=new Subject<Post[]>();
-  getPost()
+  private postupdate=new Subject<{posts: Post[], maxcount: number}>();
+  getPost(postPerPage:number, currentPage:number)
   {
-    //return [...this.postList];
-    this.httpClient.get<{message:string, post:any []}>('http://localhost:3000/post')
+    const queryparam =`?pageSize=${postPerPage}&page=${currentPage}`;
+    this.httpClient.get<{message:string, post:any [], maxPost:number}>('http://localhost:3000/post'+queryparam)
     .pipe(map((postData)=>{
-      return postData.post.map(
+      return {posts: postData.post.map(
         (        post: { title: string; content: string; _id: string; date: Date; imagePath:string })  =>
         {
           return {
@@ -27,12 +27,13 @@ export class PostService {
             date:post.date,
             imagePath: post.imagePath
           };
-        });
+        }),
+        maxpost: postData.maxPost}
     }))
     .subscribe((body)=>
     {
-      this.postList = body;
-      this.postupdate.next([...this.postList]);
+      this.postList = body.posts;
+      this.postupdate.next({posts: [...this.postList], maxcount: body.maxpost});
     });
   }
 
@@ -69,19 +70,19 @@ export class PostService {
 
     this.httpClient.put<{message:string, image:string}>("http://localhost:3000/post/"+post.id, postData)
     .subscribe(res => {
-      const updatedpost = [...this.postList];
-      const oldind= updatedpost.findIndex(p=> p.id === post.id);
-      const p : Post = {
-        id : post.id,
-        title : post.title,
-        content : post.content,
-        date : post.date,
-        imagePath : res.image
-      }
-      updatedpost[oldind]=post;
-      this.postList=updatedpost;
-      this.postupdate.next([...this.postList]);
-     // console.log(updatedpost[oldind]);
+    //   const updatedpost = [...this.postList];
+    //   const oldind= updatedpost.findIndex(p=> p.id === post.id);
+    //   const p : Post = {
+    //     id : post.id,
+    //     title : post.title,
+    //     content : post.content,
+    //     date : post.date,
+    //     imagePath : res.image
+    //   }
+    //   updatedpost[oldind]=post;
+    //   this.postList=updatedpost;
+    //   this.postupdate.next({posts: [...this.postList], maxcount: });
+    //  // console.log(updatedpost[oldind]);
       this.router.navigate(["/"]);
     });
 
@@ -96,13 +97,11 @@ export class PostService {
     this.httpClient.post<{message:string, id:string, p:any}>("http://localhost:3000/post", postData).subscribe(response =>
       {
 
-        post.id=response.id;
-        console.log(response.p);
-        this.postList.push(post);
-      this.postupdate.next([...this.postList]);
+      //   post.id=response.id;
+      //   console.log(response.p);
+      //   this.postList.push(post);
+      // this.postupdate.next([...this.postList]);
       this.router.navigate(["/"]);
-
-
       }
     )
 
@@ -110,13 +109,14 @@ export class PostService {
 
   deletePost(id:string)
   {
-    this.httpClient.delete("http://localhost:3000/post/"+id).subscribe(()=>{
-      //console.log("deleted!");
-      const updatedpost = this.postList.filter(p => p.id != id);
-      this.postList = updatedpost;
-      this.postupdate.next([...this.postList]);
-    }
-    );
+    return this.httpClient.delete("http://localhost:3000/post/"+id)
+    // .subscribe(()=>{
+    //   //console.log("deleted!");
+    //   const updatedpost = this.postList.filter(p => p.id != id);
+    //   this.postList = updatedpost;
+    //   this.postupdate.next([...this.postList]);
+    // }
+    // );
   }
   constructor(private httpClient:HttpClient,  private router:Router) { }
 }

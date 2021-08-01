@@ -1,8 +1,16 @@
 <mat-spinner *ngIf="isL"></mat-spinner>
+
+<!-- <div class="col-md-4">
+  <b>Search</b>
+</div>
+<div class="form-group col-md-4">
+  <input type="text" class="form-control"  placeholder="Enter Keyword for filter result" #search>
+</div> -->
+
 <mat-card>
   <p class="mat-body-1" *ngIf = "postList.length ==0 && !isL" style="text-align: center;"><b>NO POSTS FOUND</b></p>
 <mat-accordion multi="true" *ngIf = "postList.length > 0 && !isL">
-<mat-expansion-panel *ngFor="let i of postList">
+<mat-expansion-panel  *ngFor="let i of postList ">
   <mat-expansion-panel-header>
     {{i.title}}
   </mat-expansion-panel-header >
@@ -22,6 +30,10 @@
 </mat-expansion-panel>
 
 </mat-accordion>
+<br><br>
+<mat-paginator style-paginator showFirstLastButtons  [length]="length" [pageSize]="postPerPage" [pageSizeOptions]="pageSizeOption"
+ (page)="onPageChange($event)" *ngIf = "postList.length > 0 "></mat-paginator>
+
 </mat-card>
 
 

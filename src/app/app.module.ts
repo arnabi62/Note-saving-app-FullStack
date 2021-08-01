@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator'
 import { NotesComponent } from './notes/notes.component';
 import { PostcreateComponent } from './postcreate/postcreate.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import { DatePipe } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SearchPipe } from './search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { FooterComponent } from './footer/footer.component';
     PostcreateComponent,
     HeaderComponent,
     PostlistComponent,
-    FooterComponent
+    FooterComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,9 @@ import { FooterComponent } from './footer/footer.component';
     MatExpansionModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatPaginatorModule,
+    Ng2SearchPipeModule
   ],
   providers: [PostService, DatePipe],
   bootstrap: [AppComponent]

@@ -9,8 +9,14 @@ mat-card{
 }
  mat-spinner{
    margin: auto;
+
+   justify-content: left;
+   display: flex;
  }
 
+ mat-paginator{
+   margin-top: 2 rem;
+ }
 .image-view{
   width:100%;
 }

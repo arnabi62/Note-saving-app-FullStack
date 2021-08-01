@@ -123,10 +123,22 @@ router.get('/:id', (req,res,next)=>
 })
 router.use('',(req, res, next)=>
 {
-  Post.find().then(
-    (doc)=>
+  const pageSize = +req.query.pageSize;
+  const currpage = +req.query.page;
+  const postQuery = Post.find();
+  let fetchedPost;
+  if(pageSize && currpage){
+    postQuery.skip(pageSize * (currpage - 1)).limit(pageSize);
+  }
+  postQuery.then(doc =>
     {
-      res.status(200).json({message:"successful", post:doc});
+      fetchedPost =doc;
+      return Post.countDocuments()
+    }
+  ).then(
+    (count)=>
+    {
+      res.status(200).json({message:"successful", post:fetchedPost, maxPost:count});
     });
 });
 
