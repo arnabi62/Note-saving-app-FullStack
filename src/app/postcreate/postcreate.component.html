@@ -4,17 +4,17 @@
 <mat-card>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
 <form [formGroup]="form" (submit)="post()" *ngIf="!isLoading">
-  <mat-form-field>
+  <mat-form-field appearance="fill">
     <input matInput type="text" formControlName="title"  placeholder="enter title" >
     <mat-error *ngIf= "form.value.title.invalid">Title required</mat-error>
     </mat-form-field>
   <br><br>
-  <mat-form-field>
+  <mat-form-field appearance="fill">
     <textarea matInput rows="10" formControlName="content"  placeholder="enter content" ></textarea>
     <mat-error *ngIf="form.get('content')?.invalid">Content required</mat-error>
   </mat-form-field>
   <br><br>
-  <mat-form-field>
+  <mat-form-field appearance="fill">
     <input matInput type="date"  formControlName="date"  placeholder="enter date"  >
 
   </mat-form-field>
@@ -28,7 +28,7 @@
   <mat-error *ngIf="imagePrev != null && imagePrev !='' && form.get('image')?.invalid">Please insert the image of JPG/JPRG or PNg format</mat-error>
   <br><br>
   <div style="text-align: center;">
-<button mat-raise-button class="btn btn-primary" style="align-items: center;" [disabled]="form.invalid">submit</button>
+<button mat-raise-button class="btn btn-success" style="align-items: center;" [disabled]="form.invalid" >submit</button>
 </div>
 </form>
 </mat-card>

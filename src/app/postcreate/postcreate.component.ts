@@ -73,6 +73,7 @@ export class PostcreateComponent implements OnInit {
 
   post()
   {
+    
     this.isLoading=true
     if(this.form.invalid)
     return;

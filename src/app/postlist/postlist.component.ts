@@ -22,6 +22,7 @@ export class PostlistComponent implements OnInit, OnDestroy {
 
   onDel(id:string)
   {
+
     this.postService.deletePost(id).subscribe(()=>{
       if((this.length -1) ===this.postPerPage * (this.currPage - 1))
       {
