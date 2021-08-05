@@ -1,0 +1,28 @@
+<mat-card>
+
+<form  #loginform = "ngForm" (submit)="signup(loginform)">
+  <mat-form-field appearance="fill">
+    <input matInput type="text" name="name" ngModel #nameip="ngModel" placeholder="Name" required >
+    <mat-error *ngIf="nameip.invalid">Enter your Name</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <input matInput type="email" name="email" ngModel #emailip="ngModel" placeholder="Email" required >
+    <mat-error *ngIf="emailip.invalid">Enter a valid Email</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <input matInput type="password" name="pass" ngModel #passIp="ngModel"   placeholder="Password" required >
+    <mat-error *ngIf="passIp.invalid">Enter a valid Password</mat-error>
+  </mat-form-field>
+<br>
+
+<button mat-button color="accent" style="display: block; margin: auto;"  type="submit">Sign Up</button>
+<br>
+<div style="text-align: center;  margin: auto;" >
+<b >already have an account? &nbsp;
+   <span> <a routerLink='/login' routerLinkActive="mat-accent" color="blue"> login</a></span></b>
+</div>
+
+</form>
+</mat-card>

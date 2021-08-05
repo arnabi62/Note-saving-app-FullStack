@@ -6,12 +6,12 @@ mat-toolbar{
 a{
   text-decoration: none;
   color: white;
+  margin: 10%;
+  padding: 10%;
 }
-ul{
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.gap {
+  margin-right: 20px;
 }
 .space{
-  flex: 1 1 auto;
+  flex: auto;
 }

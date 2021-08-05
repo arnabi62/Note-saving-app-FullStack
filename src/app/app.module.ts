@@ -23,6 +23,9 @@ import { DatePipe } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SearchPipe } from './search.pipe';
+import {MatIconModule} from '@angular/material/icon';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,13 +35,16 @@ import { SearchPipe } from './search.pipe';
     HeaderComponent,
     PostlistComponent,
     FooterComponent,
-    SearchPipe
+    SearchPipe,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatIconModule,
     MatProgressSpinnerModule,
     MatInputModule,
     MatCardModule,
