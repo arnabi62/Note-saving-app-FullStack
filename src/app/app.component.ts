@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LoginService } from './login/login.service';
 import {Post} from './postmodel';
 
 @Component({
@@ -6,8 +7,12 @@ import {Post} from './postmodel';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'employee';
+export class AppComponent implements OnInit{
+  title = 'note';
 
-
+  constructor(private authService: LoginService){}
+  ngOnInit()
+  {
+    this.authService.autoAuthUser();
+  }
 }

@@ -2,7 +2,7 @@
 
 <form  #loginform = "ngForm" (submit)="signup(loginform)">
   <mat-form-field appearance="fill">
-    <input matInput type="text" name="name" ngModel #nameip="ngModel" placeholder="Name" required >
+    <input matInput type="text" name="n" ngModel #nameip="ngModel" placeholder="Name" required >
     <mat-error *ngIf="nameip.invalid">Enter your Name</mat-error>
   </mat-form-field>
   <br>

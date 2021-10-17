@@ -39,10 +39,10 @@ export class PostcreateComponent implements OnInit {
         this.postservice.getPostById(this.postId!).subscribe(
           data=>{
 
-            this.p={id:data._id, title:data.title, content:data.content, date:new Date(data.date), imagePath:data.imagePath};
+            this.p={id:data._id, title:data.title, content:data.content, date:new Date(data.date), imagePath:data.imagePath, creator:data.creator};
             const d=this.datepipe.transform(this.p.date, "yyyy-MM-dd")
-            console.log(d);
-            this.form.setValue({title:this.p.title, content:this.p.content, date:d, image: this.p.imagePath})
+           // console.log(d);
+            this.form.setValue({title:this.p.title, content:this.p.content, date:d, image: this.p.imagePath, creator:this.p.creator})
 
             this.imagePrev= this.p.imagePath;
           }
@@ -83,7 +83,8 @@ export class PostcreateComponent implements OnInit {
        title:this.form.value.title,
        content:this.form.value.content,
        date:this.form.value.date,
-        imagePath:null
+        imagePath:null,
+        creator: ""
      }
 
      if(this.mode==='create'){

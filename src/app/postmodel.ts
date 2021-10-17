@@ -5,4 +5,5 @@ export interface Post{
   date:Date;
   //image:File
   imagePath:string | null ;
+  creator:string
 }

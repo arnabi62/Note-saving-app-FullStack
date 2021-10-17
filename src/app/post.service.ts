@@ -18,20 +18,22 @@ export class PostService {
     this.httpClient.get<{message:string, post:any [], maxPost:number}>('http://localhost:3000/post'+queryparam)
     .pipe(map((postData)=>{
       return {posts: postData.post.map(
-        (        post: { title: string; content: string; _id: string; date: Date; imagePath:string })  =>
+        (        post: { title: string; content: string; _id: string; date: Date; imagePath:string, creator:string })  =>
         {
           return {
             title:post.title,
             content:post.content,
             id:post._id,
             date:post.date,
-            imagePath: post.imagePath
+            imagePath: post.imagePath,
+            creator: post.creator
           };
         }),
         maxpost: postData.maxPost}
     }))
     .subscribe((body)=>
     {
+      console.log(body);
       this.postList = body.posts;
       this.postupdate.next({posts: [...this.postList], maxcount: body.maxpost});
     });
@@ -44,7 +46,7 @@ export class PostService {
 
   getPostById(id:string)
   {
-    return this.httpClient.get<{_id:string; title:string; content:string; date:Date; imagePath:string}>("http://localhost:3000/post/"+id);
+    return this.httpClient.get<{_id:string; title:string; content:string; date:Date; imagePath:string, creator:string}>("http://localhost:3000/post/"+id);
   }
 
   updatePost(post:Post, image: File | string)
@@ -64,7 +66,8 @@ export class PostService {
         title : post.title,
         content : post.content,
         date : post.date,
-        imagePath : image
+        imagePath : image,
+        creator : ""
       }
     }
 
@@ -83,7 +86,7 @@ export class PostService {
     //   this.postList=updatedpost;
     //   this.postupdate.next({posts: [...this.postList], maxcount: });
     //  // console.log(updatedpost[oldind]);
-      this.router.navigate(["/"]);
+      this.router.navigate(["/notes"]);
     });
 
   }
@@ -98,9 +101,10 @@ export class PostService {
       {
 
       //   post.id=response.id;
-      //   console.log(response.p);
+
       //   this.postList.push(post);
       // this.postupdate.next([...this.postList]);
+      console.log("post added")
       this.router.navigate(["/"]);
       }
     )

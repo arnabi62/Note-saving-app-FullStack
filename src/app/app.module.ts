@@ -15,7 +15,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { PostlistComponent } from './postlist/postlist.component';
 import { MatExpansionModule} from '@angular/material/expansion'
 import { PostService } from './post.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker'
@@ -26,6 +26,8 @@ import { SearchPipe } from './search.pipe';
 import {MatIconModule} from '@angular/material/icon';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { AuthInceptor } from './signup/auth_interceptor';
+import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,8 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     SearchPipe,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,7 @@ import { LoginComponent } from './login/login.component';
     MatPaginatorModule,
     Ng2SearchPipeModule
   ],
-  providers: [PostService, DatePipe],
+  providers: [PostService, DatePipe, {provide: HTTP_INTERCEPTORS, useClass:AuthInceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

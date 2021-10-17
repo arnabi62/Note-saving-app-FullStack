@@ -5,7 +5,7 @@ const postSchema = mongoose.Schema(
     content: {type: String, required: true},
     date:{type: Date},
     imagePath:{type:String, required:true},
-    
+    creator: { type:mongoose.Schema.Types.ObjectId, ref:"User", required:true }
   }
 );
 
