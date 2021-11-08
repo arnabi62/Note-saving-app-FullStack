@@ -1,4 +1,19 @@
 main{
-  margin-top: 20px;
-  width: 80%;
+
+/* background-image: url(../assets/background.png); */
+background-image: linear-gradient(to bottom right, white, white,rgb(107, 107, 226));
+background-size: auto;
+
+height: 100%;
+width:100%;
+
+}
+
+/*  .container{
+background-image: url(../assets/background.png);
+background-size: cover;
+} */
+router-outlet{
+  max-height: 100%;
+  overflow-y:auto;
 }

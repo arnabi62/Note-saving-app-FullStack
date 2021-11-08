@@ -1,14 +1,14 @@
 <mat-toolbar color="primary"><span><a routerLink='/'>Home</a></span>
   <span class="space"></span>
 
-    <span *ngIf="isAuthenticated"><a routerLink='/create' mat-button routerLinkActive="mat-accent" >new note</a></span>
+    <span *ngIf="isAuthenticated"><a routerLink='/create' mat-button routerLinkActive="mat-accent" >New Note</a></span>
     <span class="gap"></span>
-    <span *ngIf="isAuthenticated"><a routerLink='/notes' mat-button routerLinkActive="mat-accent" >my notes</a></span>
+    <span *ngIf="isAuthenticated"><a routerLink='/notes' mat-button routerLinkActive="mat-accent" >My Notes</a></span>
     <span class="gap"></span>
-    <span *ngIf="!isAuthenticated"> <a routerLink='/login'mat-button routerLinkActive="mat-accent" >login</a></span>
+    <span *ngIf="!isAuthenticated"> <a routerLink='/login'mat-button routerLinkActive="mat-accent" >Login</a></span>
     <span class="gap"></span>
-    <span *ngIf="!isAuthenticated"><a routerLink='/signup' mat-button routerLinkActive="mat-accent" >sign up</a></span>
+    <span *ngIf="!isAuthenticated"><a routerLink='/signup' mat-button routerLinkActive="mat-accent" >Sign up</a></span>
     <span class="gap"></span>
-    <span *ngIf="isAuthenticated"><button mat-button (click)="onlogout()" >logout</button></span>
+    <span *ngIf="isAuthenticated"><button mat-button (click)="onlogout()" >Logout</button></span>
 
 </mat-toolbar>

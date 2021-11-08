@@ -34,7 +34,14 @@ export class LoginService {
       this.saveData(this.token, expireDate, this.id);
       console.log(exireDuration+" "+this.name+" "+expireDate);
       this.router.navigate(['/'])// this.name]);
+     
         }
+        
+      },
+      error=>
+      {
+        this.authlistener.next(false);
+        
       })
   }
 

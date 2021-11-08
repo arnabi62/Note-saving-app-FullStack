@@ -123,11 +123,11 @@ router.get('/:id', (req,res,next)=>
     }
   })
 })
-router.get('', (req, res, next)=>
+router.get('',checkAuth, (req, res, next)=>
 {
   const pageSize = +req.query.pageSize;
   const currpage = +req.query.page;
-  const postQuery = Post.find();
+  const postQuery = Post.find({creator:req.userData.userId});
   let fetchedPost;
   if(pageSize && currpage){
     postQuery.skip(pageSize * (currpage - 1)).limit(pageSize);

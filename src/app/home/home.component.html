@@ -1,17 +1,27 @@
-<h1 style="align-items: center; text-align: center;">Welcome to our site</h1>
-<mat-card class="container">
 
-  <div class="container" style="align-items: center; text-align: center;">
-    <div *ngIf="isAuthenticated && name!=''">
+<div class="container-fluid">
+  <br><br><br><br>
+<h1 style="align-items: center; text-align: center; font-size:100px">Welcome to our site</h1>
+<br><br>
+<br><br>
+<div class="container" style="align-items: center; text-align: center;">
+    <!--div *ngIf="isAuthenticated && name!=''">
       Hi {{name}} let's start your journy with us
-    </div>
-<div>
-  <p>
-    Save your note securely with us
-  </p>
+    </div-->
+<div class="container">
+  <div class = "row justify-content-around">
+<div class = "col-4">
+  <img src = "../assets/note2.png">
 </div>
-<div>
-  <img src="assets/note.jpg">
+<div class="col-8" style="display:flex; flex-direction: column; justify-content: space-between; font-size:30px">
+<br>
+  <p>save your note securely with us<br><br><br>
+ <button type="submit" class="btn btn-primary btn-sm" routerLink='/signup' style = "font-color:white ; width: 80px; height: 50px;"> sign up</button>
+</p>
 </div>
 </div>
-</mat-card>
+</div>
+</div>
+</div>
+
+

@@ -15,17 +15,36 @@ export class LoginComponent implements OnInit {
   isLoading=false;
   name:string="";
   authsub!:Subscription;
+  istrue=true;
+  functionCalled=false
+  
 login(form:NgForm)
 {
   if(form.invalid)
     return;
 
+  
    this.loginservice.login(form.value.email, form.value.pass);
+
+  //  this.istrue = this.loginservice.getAuth();
+  //  console.log(this.istrue)
+   this.functionCalled = true;
+  
 
 
 }
   ngOnInit(): void {
-
+this.authsub = this.loginservice.getListention().subscribe(
+  val=>
+  {
+    this.istrue = this.loginservice.getAuth();
+    console.log(this.istrue);
+    if(this.istrue)
+    {
+      console.log(this.istrue);
+    }
+  }
+)
   }
 
 }

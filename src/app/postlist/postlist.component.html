@@ -1,8 +1,6 @@
-
-
-
+<div class="container-fluid">
 <mat-card>
-  
+
   <mat-spinner *ngIf="isL"></mat-spinner>
    <h3> <b>Search </b></h3>
 
@@ -19,7 +17,7 @@
   <div>
   <p class="mat-body-1" style="text-align: right;">{{i.date | date: 'shortDate' }}</p>
   <div class="image-view">
-    <img [src]="i.imagePath" [alt]="i.title">
+    <img [src]="i.imagePath" [alt]="i.title" >
   </div>
   <br><br>
   <h1 class="mat-body-1" >{{i.content}}</h1>
@@ -37,6 +35,7 @@
  (page)="onPageChange($event)" *ngIf = "postList.length > 0 "></mat-paginator>
 
 </mat-card>
+<div>
 
 
 

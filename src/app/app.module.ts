@@ -28,6 +28,8 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AuthInceptor } from './signup/auth_interceptor';
 import { HomeComponent } from './home/home.component';
+import { ErrorInceptor } from './error-interceptor';
+import { ErrorComponent } from './error/error.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,8 @@ import { HomeComponent } from './home/home.component';
     SearchPipe,
     SignupComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,9 @@ import { HomeComponent } from './home/home.component';
     MatPaginatorModule,
     Ng2SearchPipeModule
   ],
-  providers: [PostService, DatePipe, {provide: HTTP_INTERCEPTORS, useClass:AuthInceptor, multi:true}],
-  bootstrap: [AppComponent]
+  providers: [PostService, DatePipe, {provide: HTTP_INTERCEPTORS, useClass:AuthInceptor, multi:true},
+    {provide: HTTP_INTERCEPTORS, useClass:ErrorInceptor, multi:true}],
+  bootstrap: [AppComponent],
+  entryComponents: [ErrorComponent]
 })
 export class AppModule { }

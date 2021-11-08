@@ -19,7 +19,9 @@
 
 <button mat-button color="accent" style="display: block; margin: auto;"  type="submit">Sign Up</button>
 <br>
+
 <div style="text-align: center;  margin: auto;" >
+  <b><p *ngIf= "isfalse" style="color:red">Email already exists, please Login</p></b>
 <b >already have an account? &nbsp;
    <span> <a routerLink='/login' routerLinkActive="mat-accent" color="blue"> login</a></span></b>
 </div>
