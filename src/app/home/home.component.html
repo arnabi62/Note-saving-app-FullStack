@@ -16,11 +16,20 @@
 <div class="col-8" style="display:flex; flex-direction: column; justify-content: space-between; font-size:30px">
 <br>
   <p>save your note securely with us<br><br><br>
- <button type="submit" class="btn btn-primary btn-sm" routerLink='/signup' style = "font-color:white ; width: 80px; height: 50px;"> sign up</button>
+ <button *ngIf="!isAuthenticated" type="submit" class="btn btn-primary btn-sm" routerLink='/signup' style = "font-color:white ; width: 80px; height: 50px;"> sign up</button>
 </p>
+ <div *ngIf="isAuthenticated">Welcome Back {{name}}</div>
+
+
+<br><br>
+<div>
+  <button type="button" class="block">CREATE</button>
 </div>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
 

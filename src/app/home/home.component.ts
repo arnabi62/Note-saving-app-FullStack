@@ -26,6 +26,10 @@ name:string=''
         this.name = this.authService.getname();
       }
     )
+    // if(this.isAuthenticated)
+    // {
+    //   alert("Welcome Back "+this.name)
+    // }
   }
 
 }

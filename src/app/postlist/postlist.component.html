@@ -2,11 +2,25 @@
 <mat-card>
 
   <mat-spinner *ngIf="isL"></mat-spinner>
-   <h3> <b>Search </b></h3>
+   <!-- <h3> <b>Search </b></h3> -->
 
-  <mat-form-field appearance="fill">
-    <input type="text" class="form-control" matInput  placeholder="Enter Keyword for filter" [(ngModel)]="searchedKeyword">
-  </mat-form-field>
+  <div  appearance="fill" style="width: 70%;
+  cursor: pointer;">
+  <table style="width: 100%;">
+
+    <tr> <td>
+      <i class="fa fa-search"></i>
+    </td>
+      <td colspan="3">
+    <input type="text"  class="form-control"   placeholder="Enter Keyword for filter"
+      style="padding: 6px;
+     border: none;" [(ngModel)]="searchedKeyword"></td>
+     <td>
+     <button type="submit" class="btn btn-primary btn-md" >Search</button>
+    </td>
+     </tr>
+   </table>
+  </div>
   <p class="mat-body-1" *ngIf = "postList.length ==0 && !isL" style="text-align: center;"><b>NO POSTS FOUND</b></p>
   <br><br>
 <mat-accordion multi="true" *ngIf = "postList.length > 0 && !isL">
