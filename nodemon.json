@@ -1,0 +1,7 @@
+{
+  "env":
+  {
+    "mong_atlas_password": "arnabi",
+    "jwt_key":"secret_long_string"
+  }
+}

@@ -1,8 +1,9 @@
 main{
 
 /* background-image: url(../assets/background.png); */
-background-image: linear-gradient(to bottom right, white, white,rgb(107, 107, 226));
+/* background-image: linear-gradient(to bottom right, white, white,rgb(107, 107, 226)); */
 background-size: auto;
+justify-content: center;
 
 height: 100%;
 width:100%;

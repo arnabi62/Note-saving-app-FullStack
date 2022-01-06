@@ -1,35 +1,21 @@
 
+
 <div class="container-fluid">
-  <br><br><br><br>
-<h1 style="align-items: center; text-align: center; font-size:100px">Welcome to our site</h1>
-<br><br>
-<br><br>
-<div class="container" style="align-items: center; text-align: center;">
-    <!--div *ngIf="isAuthenticated && name!=''">
-      Hi {{name}} let's start your journy with us
-    </div-->
-<div class="container">
-  <div class = "row justify-content-around">
-<div class = "col-4">
-  <img src = "../assets/note2.png">
-</div>
-<div class="col-8" style="display:flex; flex-direction: column; justify-content: space-between; font-size:30px">
-<br>
-  <p>save your note securely with us<br><br><br>
- <button *ngIf="!isAuthenticated" type="submit" class="btn btn-primary btn-sm" routerLink='/signup' style = "font-color:white ; width: 80px; height: 50px;"> sign up</button>
-</p>
- <div *ngIf="isAuthenticated">Welcome Back {{name}}</div>
+  <div style="align-items: center; text-align: center;">
+    <img src="../assets/welcome.gif" width="600px" height="300px">
+   </div>
 
+  <div style="align-items: center; text-align: center;">
 
-<br><br>
-<div>
-  <button type="button" class="block">CREATE</button>
-</div>
-</div>
-</div>
+          <h1 style="align-items: center; text-align: center; font-size:5vw; color: rgb(23, 13, 66);"> <b>Your Note : Security on us</b> </h1>
+  </div>
 
-</div>
-
+<div style="align-items: center; text-align: center; display: flex; justify-content: center;">
+<mat-card class="card">
+  <mat-card-content style="align-items: center; text-align: center;" >
+  Note it provides you the best Security for saving your notes. Create your account and save your notes. You can also add images and date and also search for your notes. We keep all your notes handy,<br> Just one click
+</mat-card-content>
+</mat-card>
 </div>
 </div>
 

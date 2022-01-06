@@ -57,7 +57,7 @@ exports.createPost = (req,res,next)=>{
      }
      else
      {
-       res.status(400).json({message:"unable to fetch Data"})
+      res.status(401).json({message:"Not autherized"})
      }
    })
 }

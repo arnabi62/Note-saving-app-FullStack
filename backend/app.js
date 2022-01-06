@@ -1,5 +1,5 @@
 const express= require('express');
-const bodyParser =require('body-parser')
+//const bodyParser =require('body-parser')
 const app=express();
 const path= require('path')
 //const Post = require('./models/post')
@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const postRoute = require('./routes/post');
 const userRoute = require('./routes/user')
 
-mongoose.connect('mongodb+srv://arnabi:arnabi@cluster0.dyo7z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true},
+mongoose.connect("mongodb+srv://arnabi:"+ process.env.mong_atlas_password +"@cluster0.dyo7z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {useNewUrlParser: true},
 { useUnifiedTopology: true } ).then(
   ()=>{console.log("connected")}
 ).catch(

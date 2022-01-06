@@ -3,7 +3,7 @@ import { User } from '../signup/user';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
-
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +19,7 @@ export class LoginService {
   login(email:string, pass:string)
   {
     const user:User = {name : "", email:email, password:pass}
-    this.httpClient.post<{token:string, name:string, id:string, expiresIn:number}>("http://localhost:3000/user/login", user).subscribe(
+    this.httpClient.post<{token:string, name:string, id:string, expiresIn:number}>(environment.apiUrl+"user/login", user).subscribe(
       (res: any)=>{
         this.token = res.token;
         if(this.token!=""){
@@ -34,14 +34,14 @@ export class LoginService {
       this.saveData(this.token, expireDate, this.id);
       console.log(exireDuration+" "+this.name+" "+expireDate);
       this.router.navigate(['/'])// this.name]);
-     
+
         }
-        
+
       },
       error=>
       {
         this.authlistener.next(false);
-        
+
       })
   }
 

@@ -4,6 +4,7 @@ import { Post } from './postmodel';
 import {HttpClient} from '@angular/common/http'
 import {map} from 'rxjs/operators'
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class PostService {
   getPost(postPerPage:number, currentPage:number)
   {
     const queryparam =`?pageSize=${postPerPage}&page=${currentPage}`;
-    this.httpClient.get<{message:string, post:any [], maxPost:number}>('http://localhost:3000/post'+queryparam)
+    this.httpClient.get<{message:string, post:any [], maxPost:number}>(environment.apiUrl+"post"+queryparam)
     .pipe(map((postData)=>{
       return {posts: postData.post.map(
         (        post: { title: string; content: string; _id: string; date: Date; imagePath:string, creator:string })  =>
@@ -46,7 +47,7 @@ export class PostService {
 
   getPostById(id:string)
   {
-    return this.httpClient.get<{_id:string; title:string; content:string; date:Date; imagePath:string, creator:string}>("http://localhost:3000/post/"+id);
+    return this.httpClient.get<{_id:string; title:string; content:string; date:Date; imagePath:string, creator:string}>(environment.apiUrl+'post'+id);
   }
 
   updatePost(post:Post, image: File | string)
@@ -61,6 +62,7 @@ export class PostService {
       postData.append("image", image, post.title)
     }
     else{
+      console.log("hi")
     postData ={
         id : post.id,
         title : post.title,

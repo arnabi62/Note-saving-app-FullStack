@@ -18,7 +18,8 @@ mat-card{
    margin-top: 2 rem;
  }
 .image-view{
-  width:100%;
+  width:50%;
+  height: 50%;
 }
 
 .image-view img{

@@ -52,7 +52,7 @@ exports.userLogin = (req,res,next)=>
         {
           return res.status(401).json({message:"Invalid credetials"});
         }
-        const token = jwt.sign({email :fetched_user.email, id: fetched_user._id}, "secret_long_string", {expiresIn: "1h"});
+        const token = jwt.sign({email :fetched_user.email, id: fetched_user._id}, process.env.jwt_key, {expiresIn: "1h"});
         //console.log("token:"+token);
         res.status(200).json({token:token, name:fetched_user.name, id:fetched_user._id, expiresIn:3600})
       })

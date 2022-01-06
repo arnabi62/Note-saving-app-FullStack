@@ -1,13 +1,18 @@
-<mat-toolbar color="primary"><span><a routerLink='/'>Home</a></span>
-  <span class="space"></span>
+<mat-toolbar color="primary">
+  <span>
+        <p class="heading"><b>Note&nbsp;it</b></p>
+  </span>
 
+  <span class="space"></span>
+  <span><a routerLink='/' mat-button routerLinkActive="mat-accent">Home</a></span>
+  <span class="gap"></span>
     <span *ngIf="isAuthenticated"><a routerLink='/create' mat-button routerLinkActive="mat-accent" >New Note</a></span>
     <span class="gap"></span>
     <span *ngIf="isAuthenticated"><a routerLink='/notes' mat-button routerLinkActive="mat-accent" >My Notes</a></span>
     <span class="gap"></span>
-    <span *ngIf="!isAuthenticated"> <a routerLink='/login'mat-button routerLinkActive="mat-accent" >Login</a></span>
+    <span *ngIf="!isAuthenticated"> <a routerLink='/auth/login'mat-button routerLinkActive="mat-accent" >Login</a></span>
     <span class="gap"></span>
-    <span *ngIf="!isAuthenticated"><a routerLink='/signup' mat-button routerLinkActive="mat-accent" >Sign up</a></span>
+    <span *ngIf="!isAuthenticated"><a routerLink='/auth/signup' mat-button routerLinkActive="mat-accent" >Sign up</a></span>
     <span class="gap"></span>
     <span *ngIf="isAuthenticated"><button mat-button (click)="onlogout()" >Logout</button></span>
 

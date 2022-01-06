@@ -31,6 +31,7 @@ import { HomeComponent } from './home/home.component';
 import { ErrorInceptor } from './error-interceptor';
 import { ErrorComponent } from './error/error.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AuthRoutingModule } from './signup/auth_routing.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +64,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDatepickerModule,
     MatPaginatorModule,
     Ng2SearchPipeModule,
-    MatDialogModule
+    MatDialogModule,
+    AuthRoutingModule
   ],
   providers: [PostService, DatePipe, {provide: HTTP_INTERCEPTORS, useClass:AuthInceptor, multi:true},
     {provide: HTTP_INTERCEPTORS, useClass:ErrorInceptor, multi:true}],
