@@ -7,8 +7,8 @@ const path= require('path')
 const mongoose = require('mongoose');
 const postRoute = require('./routes/post');
 const userRoute = require('./routes/user')
-
-mongoose.connect("mongodb+srv://arnabi:"+ process.env.mong_atlas_password +"@cluster0.dyo7z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {useNewUrlParser: true},
+// process.env.mong_atlas_password
+mongoose.connect("mongodb+srv://arnabi:"+ process.env.mong_atlas_password+"@cluster0.dyo7z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {useNewUrlParser: true},
 { useUnifiedTopology: true } ).then(
   ()=>{console.log("connected")}
 ).catch(
